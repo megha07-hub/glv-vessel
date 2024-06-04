@@ -7,9 +7,12 @@
     <link href="css/main.css" rel="stylesheet" defer>
   </head>
   <body>
-    <div id="map" class="map loading"></div>
+    <div id="map" class="map loading">
+      <div id="tooltip" class="tooltip"></div>
+      <div id="info-box" class="info-box"></div>
+    </div>
     
     <script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
-    <script src="js/main.js"></script>
+    <script type="module" src="js/main.js"></script>
   </body>
 </html>

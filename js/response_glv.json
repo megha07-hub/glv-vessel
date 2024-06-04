@@ -1,0 +1,120 @@
+{
+    "data": {
+        "vessels": {
+            "nodes": [
+                {
+                    "staticData": {
+                        "name": "TERNSUND",
+                        "mmsi": 219775000,
+                        "imo": 9722390,
+                        "shipType": "TANKER_PRODUCT",
+                        "flag": "DK"
+                    },
+                    "lastPositionUpdate": {
+                        "accuracy": "LOW",
+                        "collectionType": "TERRESTRIAL",
+                        "course": 345.3,
+                        "timestamp": "2024-06-03T15:15:01.000Z",
+                        "updateTimestamp": "2024-06-03T15:15:17.287Z",
+                        "longitude": 12.42088167,
+                        "latitude": 56.22485333
+                    },
+                    "currentVoyage": {
+                        "draught": 6.7
+                    }
+                },
+                {
+                    "staticData": {
+                        "name": "BELLAVISTA EXPLORER",
+                        "mmsi": 563131200,
+                        "imo": 9895305,
+                        "shipType": "GAS_CARRIER",
+                        "flag": "SG"
+                    },
+                    "lastPositionUpdate": {
+                        "accuracy": "LOW",
+                        "collectionType": "DYNAMIC",
+                        "course": 276.8,
+                        "timestamp": "2024-06-03T14:32:23.000Z",
+                        "updateTimestamp": "2024-06-03T14:37:18.877Z",
+                        "longitude": -92.47183167,
+                        "latitude": 25.0829
+                    },
+                    "currentVoyage": {
+                        "draught": 7.9
+                    }
+                },
+                {
+                    "staticData": {
+                        "name": "BRASIL MARU",
+                        "mmsi": 352131000,
+                        "imo": 9321275,
+                        "shipType": "DRY_BULK",
+                        "flag": "PA"
+                    },
+                    "lastPositionUpdate": {
+                        "accuracy": "LOW",
+                        "collectionType": "DYNAMIC",
+                        "course": 73.2,
+                        "timestamp": "2024-06-03T15:15:01.000Z",
+                        "updateTimestamp": "2024-06-03T15:15:39.662Z",
+                        "longitude": 135.73528333,
+                        "latitude": 33.114525
+                    },
+                    "currentVoyage": {
+                        "draught": 13.1
+                    }
+                },
+                {
+                    "staticData": {
+                        "name": "STELLAR CROWN",
+                        "mmsi": 538007523,
+                        "imo": 9735775,
+                        "shipType": "DRY_BULK",
+                        "flag": "MH"
+                    },
+                    "lastPositionUpdate": {
+                        "accuracy": "LOW",
+                        "collectionType": "TERRESTRIAL",
+                        "course": 282.1,
+                        "timestamp": "2024-06-03T15:15:07.000Z",
+                        "updateTimestamp": "2024-06-03T15:15:37.121Z",
+                        "longitude": 19.43787167,
+                        "latitude": -34.88397667
+                    },
+                    "currentVoyage": {
+                        "draught": 11.2
+                    }
+                },
+                {
+                    "staticData": {
+                        "name": "BOW OLYMPUS",
+                        "mmsi": 257081350,
+                        "imo": 9818527,
+                        "shipType": "TANKER_CHEMICALS",
+                        "flag": "NO"
+                    },
+                    "lastPositionUpdate": {
+                        "accuracy": "LOW",
+                        "collectionType": "DYNAMIC",
+                        "course": 255.1,
+                        "timestamp": "2024-06-03T15:16:35.000Z",
+                        "updateTimestamp": "2024-06-03T15:16:59.894Z",
+                        "longitude": 3.94984,
+                        "latitude": 60.805305
+                    },
+                    "currentVoyage": {
+                        "draught": 8.1
+                    }
+                }
+            ]
+        }
+    },
+    "extensions": {
+        "requestId": "ad4b3458-32b5-4205-be76-23738cc3eaf5",
+        "requestQuota": {
+            "limit": "60 req/m (burst 60)",
+            "remaining": 59
+        }
+    }
+}

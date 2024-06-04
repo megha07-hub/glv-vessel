@@ -1,0 +1,60 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "id": "9082612747464471583",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [122.24226667,38.17826667]
+        },
+        "geometry_name": "position",
+        "properties": {
+          "mmsi": 219018271,
+          "imo": 9619907,
+          "vessel_name": "MAERSKMCKINNEYMOLLER",
+          "callsign": "OWIZ2",
+          "vessel_type": "Cargo",
+          "vessel_type_code": 79,
+          "vessel_type_cargo": "No Additional Information",
+          "vessel_class": "A",
+          "length": 399,
+          "width": 60,
+          "flag_country": "Denmark",
+          "flag_code": 219,
+          "destination": "CNHSK>CNTST",
+          "eta": "07071600",
+          "draught": 11,
+          "longitude": 122.24226666666667,
+          "latitude": 38.178266666666666,
+          "sog": 9.7,
+          "cog": 101.1,
+          "rot": 0,
+          "heading": 100,
+          "nav_status": "Under Way Using Engine",
+          "nav_status_code": 0,
+          "source": "T-AIS",
+          "ts_pos_utc": "20230706074410",
+          "ts_static_utc": "20230706061452",
+          "ts_insert_utc": "20230706074427",
+          "dt_pos_utc": "2023-07-06 07:44:10",
+          "dt_static_utc": "2023-07-06 06:14:52",
+          "dt_insert_utc": "2023-07-06 07:44:27",
+          "vessel_type_main": "Container Ship",
+          "vessel_type_sub": "",
+          "message_type": 1,
+          "eeid": 9082612747464471583
+        }
+      }
+    ],
+    "totalFeatures": 1,
+    "numberMatched": 1,
+    "numberReturned": 1,
+    "timeStamp": "2023-07-06T07:49:58.188Z",
+    "crs": {
+      "type": "name",
+      "properties": {
+        "name": "urn:ogc:def:crs:EPSG::4326"
+      }
+    }
+  }

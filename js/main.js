@@ -1,14 +1,39 @@
+import myJson from './response_glv.json' assert { type: 'json' };
+
+const url = 'https://api.spire.com/graphql';
+const query = `query FirstQuery {
+  vessels(first: 5) {
+   nodes {
+    staticData {
+     name
+     mmsi
+     imo
+     shipType
+     flag
+     
+    }
+    lastPositionUpdate {
+     accuracy
+     collectionType
+     course
+     timestamp
+     updateTimestamp
+    }
+    currentVoyage {
+     draught
+    }
+   }
+  }
+ }`;
+
 window.addEventListener("load", function(){
-  if(window.location.href.includes('mmsi=') && window.location.href.includes('key=') ){
+   
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     const mmsi=urlParams.getAll('mmsi')[0];
     const key=urlParams.getAll('key')[0];
-    if(mmsi.length==9) initMap(mmsi, key);
-    else alert('Invalid mmsi provided.');
-  }else{
-    alert('Please provide a valid mmsi and key');
-  }
+    initMap(mmsi, key);
+   
 });
 
 function initMap(mmsi, key) {
@@ -46,32 +71,64 @@ function initMap(mmsi, key) {
 
     map.addControl(new mapboxgl.NavigationControl());
 
-    fetch('https://services.exactearth.com/gws/wfs?authKey='+key+'&service=WFS&request=GetFeature&version=1.1.0&typeName=exactAIS:LVI&outputFormat=json&cql_filter=mmsi='+mmsi)
-    .then(function(response) {
-      if(response.statusText!=='Unauthorized') return response.json();
-      else alert('Invalid key provided');
-    })
-    .then(function(myJson) {
-      if(typeof myJson.features!=='undefined' && myJson.features.length){
+    // const fetchData = async () => {
+    //   const response = await fetch(url, {
+    //     method: 'POST',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': 'Bearer UsDcIhrr1wzrVDyksn0NUm47vSgt2zNV', // if authentication is needed,
+    //       'Access-Control-Allow-Origin':'*'
+    //     },
+    //     body: JSON.stringify({ query })
+    //   });
+    
+    //   const data = await response.json();
+    //   console.log(data);
+    // };
+    
+    // fetchData().catch(error => console.error('Error:', error));
 
-        const position=myJson.features[0].geometry.coordinates;
-        const heading=myJson.features[0].properties.heading ? myJson.features[0].properties.heading : 0;
 
-        const el = document.createElement('div');
-        el.className = 'boatIcon';
+        let nodes = myJson.data.vessels['nodes'];
 
+
+        for (const node of nodes) {
+          
+          console.log(node);
+          const el = document.createElement('div');
+          el.className = 'boatIcon';
+          const longitude = node['lastPositionUpdate']['longitude'];
+          const lattitude =  node['lastPositionUpdate']['latitude'];
+
+       
         const marker = new mapboxgl.Marker(el)
-        .setLngLat(position)
-        .setRotation(heading)
+        .setLngLat([longitude, lattitude])
+        .setRotation(100)
         .addTo(map);
 
-        map.setCenter(position);
+        map.setCenter([longitude, lattitude]);
         map.setZoom(10);
 
+        marker.getElement().addEventListener('mouseenter', () => {
+            tooltip.style.display = 'block';
+            tooltip.innerHTML = `Longitude: ${longitude}<br>Latitude: ${lattitude}<br>Ship Type: ${node.staticData.shipType}`;
+        });
+
+        marker.getElement().addEventListener('mouseleave', () => {
+            tooltip.style.display = 'none';
+        });
+
+        marker.getElement().addEventListener('mousemove', (e) => {
+            tooltip.style.left = e.pageX + 10 + 'px';
+            tooltip.style.top = e.pageY + 10 + 'px';
+        });
+
+        map.setCenter([longitude, lattitude]);
+        map.setZoom(10);
+        
+        }
+      
+        
         document.getElementById('map').classList.remove('loading');
-      }else{
-        alert('No vessel with mmsi '+parseInt(mmsi));
-        document.getElementById('map').classList.remove('loading');
-      }
-  });
+      
 }
